@@ -4,7 +4,6 @@
 	<groupId>com.number.word</groupId>
 	<artifactId>number_to_word</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<properties>
 		<sonar.host.url>http://localhost:9000/</sonar.host.url>
 		<sonar.sources>src/main</sonar.sources>
@@ -36,6 +35,15 @@
 			<build>
 				<pluginManagement>
 					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<version>2.5.1</version>
+							<configuration>
+								<source>1.7</source>
+								<target>1.7</target>
+							</configuration>
+						</plugin>
 						<plugin>
 							<groupId>org.jacoco</groupId>
 							<artifactId>jacoco-maven-plugin</artifactId>
