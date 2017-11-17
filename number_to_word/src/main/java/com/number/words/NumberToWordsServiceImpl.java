@@ -4,11 +4,20 @@
 package com.number.words;
 
 import static com.number.words.util.NumberToWordsConstant.BLANK_SPACE;
+import static com.number.words.util.NumberToWordsConstant.EIGHT;
+import static com.number.words.util.NumberToWordsConstant.FIVE;
+import static com.number.words.util.NumberToWordsConstant.FOUR;
 import static com.number.words.util.NumberToWordsConstant.NEGATIVE_NUMBER_EXCEPTION_FOUND;
+import static com.number.words.util.NumberToWordsConstant.NINE;
+import static com.number.words.util.NumberToWordsConstant.ONE;
+import static com.number.words.util.NumberToWordsConstant.SEVEN;
+import static com.number.words.util.NumberToWordsConstant.SIX;
+import static com.number.words.util.NumberToWordsConstant.THREE;
+import static com.number.words.util.NumberToWordsConstant.TWO;
 import static com.number.words.util.NumberToWordsConstant.WORD_HUNDRED;
 import static com.number.words.util.NumberToWordsConstant.WORD_MILLION;
 import static com.number.words.util.NumberToWordsConstant.WORD_THOUSAND;
-import static com.number.words.util.NumberToWordsConstant.ZERO;
+import static com.number.words.util.NumberToWordsConstant.*;
 import static com.number.words.util.NumberToWordsUtil.appendWords;
 import static com.number.words.util.NumberToWordsUtil.doCalculate;
 
@@ -21,25 +30,32 @@ import com.number.words.util.MathOperation;
  */
 public abstract class NumberToWordsServiceImpl implements NumberToWordsService {
 
+	/**
+	 * convertDigits - converting the input number to word
+	 * @param digits
+	 *            - Input number
+	 * @throws NegativeNumberException
+	 *
+	 */
+	
+	String words = "";
+
+	
+
+	int zero = 0;
+	int ten = 10;
+	int twenty = 20;
+	int hundred = 100;
+	int million = hundred * hundred * hundred;
+	int thousand = hundred * ten;
 	public String convertDigits(int digits) throws NegativeNumberException {
 
-		String words = "";
-		
 		int inputNumber = digits;
 
-		int zero = 0;
-		int ten = 10;
-		int twenty = 20;
-		int hundred = 100;
-		int million = hundred * hundred * hundred;
-		int thousand = hundred * ten;
+		final String[] units = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE,
+				THIRTEEN, FOURTEEN, FIFTEEN, SIXTEEN, SEVENTEEN, EIGHTEEN, NINETEEN };
 
-		final String[] units = { ZERO, "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-				"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
-				"nineteen" };
-
-		final String[] tens = { ZERO, "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
-				"ninety" };
+		final String[] tens = { ZERO, TEN, TWENTY, THIRTY, FOURTY, FIFTY, SIXTY, SEVENTY, EIGHTY, NINETY };
 
 		if (inputNumber == zero) {
 			return ZERO;
